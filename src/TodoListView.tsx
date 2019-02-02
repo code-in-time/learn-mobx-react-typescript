@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observable, computed } from 'mobx'
 import { observer} from 'mobx-react'
-import TodoStore from "./store/TodoStore";
+import CounterStore from "./store/CounterStore";
 
 @observer
 class TodoListView extends Component {
@@ -12,9 +12,11 @@ class TodoListView extends Component {
                     <TodoView todo={todo} key={todo.id} />
                 )} */}
             </ul>
-            Tasks left: {TodoStore.title}
+            {/* Tasks left: {CounterStore.title} */}
             <br />
-            Counter: {TodoStore.counter} <button type="button">add count</button>
+            Counter: {CounterStore.counter}
+                <button onClick={()=> CounterStore.increment()} type="button">add count</button>
+                <button onClick={()=> CounterStore.decriment()} type="button"  disabled={CounterStore.counter === 0}>remove count</button>
         </div>
     }
 }

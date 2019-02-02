@@ -1,17 +1,15 @@
 import { observable, computed, action } from 'mobx'
 import { observer} from 'mobx-react'
 
-class TodoStoreClass {
-    @observable title: string;
-    @observable finished: boolean = false;
+class CounterClass {
     @observable counter: number = 0;
-    id = Math.random();
-    constructor(title: string = 'default text') {
-        this.title = title;
-    }
     @action.bound
     increment() {
-        this.counter++ // 'this' will always be correct
+        this.counter++
+    }
+    @action.bound
+    decriment() {
+        this.counter === 0 ? null : this.counter--
     }
 }
 
@@ -22,8 +20,8 @@ class TodoStoreClass {
 //     }
 // }
 
-const TodoStore = new TodoStoreClass();
+const CounterStore = new CounterClass();
 
-export default TodoStore
+export default CounterStore
 
 
