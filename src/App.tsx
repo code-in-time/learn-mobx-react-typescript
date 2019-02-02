@@ -6,6 +6,7 @@ import { observer} from 'mobx-react'
 import TodoListView from "./TodoListView";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import NotesAdd from './NotesAdd';
+import NotesView from './NotesView';
 
 class App extends Component {
   render() {
@@ -21,7 +22,9 @@ class App extends Component {
           <div className="col">
             <NotesAdd />
           </div>
-          <div className="col"></div>
+          <div className="col">
+            <NotesView />
+          </div>
         </div>
       </div>
     );

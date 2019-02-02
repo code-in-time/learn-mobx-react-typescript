@@ -13,6 +13,10 @@ class NotesClass {
     addNote(note: Inotes) {
         this.notes.push(note);
     }
+    @action.bound
+    removeNote(index: number) {
+        this.notes.splice(index, 1);
+    }
     
     // @action.bound
     // increment() {
