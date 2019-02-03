@@ -34,6 +34,7 @@ class NotesClass {
         this.saveNotesIsLoading = true
         axios.post('http://localhost:5000/api/shop', {NotesL: this.notes})
         .then((response: any) => {
+          // TODO: what is the response type? What should any be?
           console.log(response);
           this.saveNotesIsLoading = false
           // Clear all the notes
@@ -50,10 +51,14 @@ class NotesClass {
         this.loadNotesIsLoading = true
         axios.get('http://localhost:5000/api/shop')
         .then((response: any) => {
-          console.log(response);
+            // TODO: what is the response type? What should any be?
+            console.log('response', response.data)
+            debugger;
+            response.data.NotesL.map((v:Inotes) => {
+                this.addNote(v);
+            });
+          console.log('this' ,this);
           this.loadNotesIsLoading = false
-          // clear all the notes
-          NotesStore.clearAllNotes()
         })
         .catch((error) => {
           console.log(error);

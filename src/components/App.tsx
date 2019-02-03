@@ -8,8 +8,17 @@ import NotesAdd from './NotesAdd';
 import NotesView from './NotesView';
 import DevTools from 'mobx-react-devtools'
 import Loader from './Loader';
+import NotesStore, { Inotes } from "../store/NotesStore"
 
 class App extends Component {
+  /**
+   * This is where all items in the store would initialize if required
+   */
+  componentDidMount() {
+    // Load the notes
+    NotesStore.loadNotes();
+  }
+
   render() {
     return (
       <div className="App">

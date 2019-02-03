@@ -10,6 +10,7 @@ export default class NotesView extends Component {
     xButton = (index:number) => <button onClick={() => {NotesStore.removeNote(index)}} type="button">X</button>
 
     btnClickApiSave = (e:any) => {
+        // TODO: What should any be?
         console.log('e', e)
         NotesStore.saveNotes();
 

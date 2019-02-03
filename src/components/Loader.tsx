@@ -6,7 +6,8 @@ import NotesStore, { Inotes } from "../store/NotesStore"
 @observer
 export default class Loader extends Component {
     render() {
-        if (NotesStore.saveNotesIsLoading) {
+        if (NotesStore.saveNotesIsLoading ||
+            NotesStore.loadNotesIsLoading) {
             return (
                 <div>loading</div>
             )
