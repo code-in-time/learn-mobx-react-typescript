@@ -8,11 +8,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import NotesAdd from './NotesAdd';
 import NotesView from './NotesView';
 import DevTools from 'mobx-react-devtools'
+import Loader from './Loader';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <Loader />
         <DevTools />
         <div className="row">
           <div className="col">

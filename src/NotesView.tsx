@@ -2,7 +2,7 @@ import React, { Component, ReactHTMLElement, ReactComponentElement } from 'react
 import { observable, computed } from 'mobx'
 import { observer } from 'mobx-react'
 import NotesStore, { Inotes } from "./store/NotesStore"
-import axios from 'axios'
+
 
 @observer
 export default class NotesView extends Component {
@@ -11,16 +11,8 @@ export default class NotesView extends Component {
 
     btnClickApiSave = (e:any) => {
         console.log('e', e)
-        debugger
-        axios.post('http://localhost:5000/api/shop', {NotesL: NotesStore.notes})
-          .then(function (response: any) {
-            console.log(response);
-            // clear all the notes
-            NotesStore.clearAllNotes()
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
+        NotesStore.saveNotes();
+
     }
 
     render() {
