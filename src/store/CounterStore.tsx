@@ -16,5 +16,3 @@ class CounterClass {
 const CounterStore = new CounterClass();
 
 export default CounterStore
-
-
