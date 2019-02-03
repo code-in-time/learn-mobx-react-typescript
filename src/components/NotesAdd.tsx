@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observable, computed } from 'mobx'
 import { observer } from 'mobx-react'
-import  NotesStore, { Inotes } from "./store/NotesStore"
+import  NotesStore, { Inotes } from "../store/NotesStore"
 
 @observer
 export default class NotesAdd extends Component {

@@ -13,13 +13,6 @@ class CounterClass {
     }
 }
 
-// class TodoList {
-//     @observable todos = [];
-//     @computed get unfinishedTodoCount() {
-//         return this.todos.filter(todo => !todo.finished).length;
-//     }
-// }
-
 const CounterStore = new CounterClass();
 
 export default CounterStore
