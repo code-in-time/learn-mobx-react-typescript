@@ -7,11 +7,13 @@ import TodoListView from "./TodoListView";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import NotesAdd from './NotesAdd';
 import NotesView from './NotesView';
+import DevTools from 'mobx-react-devtools'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <DevTools />
         <div className="row">
           <div className="col">
             <TodoListView />

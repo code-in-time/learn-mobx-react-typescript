@@ -17,17 +17,16 @@ class NotesClass {
     removeNote(index: number) {
         this.notes.splice(index, 1);
     }
+    @action.bound
+    clearAllNotes() {
+        this.notes = [];
+    }
+    @computed
+        get totalNewNotesCount() {
+            return this.notes.length;
+        }
+    }
     
-    // @action.bound
-    // increment() {
-    //     this.counter++
-    // }
-    // @action.bound
-    // decriment() {
-    //     this.counter === 0 ? null : this.counter--
-    // }
-}
-
 // class TodoList {
 //     @observable todos = [];
 //     @computed get unfinishedTodoCount() {

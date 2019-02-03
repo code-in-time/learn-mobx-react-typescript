@@ -2,11 +2,26 @@ import React, { Component, ReactHTMLElement, ReactComponentElement } from 'react
 import { observable, computed } from 'mobx'
 import { observer } from 'mobx-react'
 import NotesStore, { Inotes } from "./store/NotesStore"
+import axios from 'axios'
 
 @observer
 export default class NotesView extends Component {
 
     xButton = (index:number) => <button onClick={() => {NotesStore.removeNote(index)}} type="button">X</button>
+
+    btnClickApiSave = (e:any) => {
+        console.log('e', e)
+        debugger
+        axios.post('http://localhost:5000/api/shop', {NotesL: NotesStore.notes})
+          .then(function (response: any) {
+            console.log(response);
+            // clear all the notes
+            NotesStore.clearAllNotes()
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
 
     render() {
         return (
@@ -32,6 +47,18 @@ export default class NotesView extends Component {
                                 </tr>)
                         }
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colSpan={3}>
+                                <strong>Total Notes: {NotesStore.totalNewNotesCount}</strong>
+                                {/* API to save all notes */}
+                                {NotesStore.notes.length >= 1 &&
+                                    <button type="button" onClick={this.btnClickApiSave}>API Save notes</button>
+                                }
+                            </td>
+                        </tr>
+                    </tfoot>
+
                 </table>
             </div>
         )
