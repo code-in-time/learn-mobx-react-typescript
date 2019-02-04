@@ -8,15 +8,17 @@ import NotesAdd from './NotesAdd';
 import NotesView from './NotesView';
 import DevTools from 'mobx-react-devtools'
 import Loader from './Loader';
-import NotesStore, { Inotes } from "../store/NotesStore"
+import { Store } from "../store/Store"
+import { Inotes } from "../store/NotesStore"
 
+@observer
 class App extends Component {
   /**
    * This is where all items in the store would initialize if required
    */
   componentDidMount() {
     // Load the notes
-    NotesStore.loadNotes();
+    Store.NotesStore.loadNotes();
   }
 
   render() {
@@ -37,7 +39,15 @@ class App extends Component {
           <div className="col">
             <NotesView />
           </div>
+
         </div>
+      
+        <div className="row">
+            <div className="col">
+              <div>Counter: {Store.CounterStore.counter}</div>
+            </div>
+          </div>
+
       </div>
     );
   }

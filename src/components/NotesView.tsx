@@ -1,24 +1,27 @@
 import React, { Component, ReactHTMLElement, ReactComponentElement } from 'react';
 import { observable, computed } from 'mobx'
 import { observer } from 'mobx-react'
-import NotesStore, { Inotes } from "../store/NotesStore"
+import { Store } from "../store/Store"
+import { Inotes } from "../store/NotesStore"
+import { trace } from "mobx"
 
 
 @observer
 export default class NotesView extends Component {
 
-    xButton = (index:number) => <button onClick={() => {NotesStore.removeNote(index)}} type="button">X</button>
+    xButton = (index:number) => <button onClick={() => {Store.NotesStore.removeNote(index)}} type="button">X</button>
 
     btnClickApiSave = (e:any) => {
         // TODO: What should any be?
         console.log('e', e)
-        NotesStore.saveNotes();
+        Store.NotesStore.saveNotes();
 
     }
 
     render() {
         return (
             <div>
+                {trace(true)}
                 <table className="table">
                     <thead>
                         <tr>
@@ -29,9 +32,9 @@ export default class NotesView extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {NotesStore.notes.length === 0 && <tr><td></td>NO NOTES<td></td><td></td></tr>}
-                        {NotesStore.notes.length >= 1 &&
-                            NotesStore.notes.map((v, i) => 
+                        {Store.NotesStore.notes.length === 0 && <tr><td></td>NO NOTES<td></td><td></td></tr>}
+                        {Store.NotesStore.notes.length >= 1 &&
+                            Store.NotesStore.notes.map((v, i) => 
                                 <tr key={i}>
                                     <td>{v.date}</td>
                                     <td>{v.ID}</td>
@@ -43,9 +46,9 @@ export default class NotesView extends Component {
                     <tfoot>
                         <tr>
                             <td colSpan={3}>
-                                <strong>Total Notes: {NotesStore.totalNewNotesCount}</strong>
+                                <strong>Total Notes: {Store.NotesStore.totalNewNotesCount}</strong>
                                 {/* API to save all notes */}
-                                {NotesStore.notes.length >= 1 &&
+                                {Store.NotesStore.notes.length >= 1 &&
                                     <button type="button" onClick={this.btnClickApiSave}>API Save notes</button>
                                 }
                             </td>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { observable, computed } from 'mobx'
 import { observer } from 'mobx-react'
-import  NotesStore, { Inotes } from "../store/NotesStore"
+import { Store } from "../store/Store"
+import { Inotes } from "../store/NotesStore"
 
 @observer
 export default class NotesAdd extends Component {
@@ -9,7 +10,7 @@ export default class NotesAdd extends Component {
         e.preventDefault();
         // _values : Inotes
         console.log('form', this.state)
-        NotesStore.addNote(this.state);
+        Store.NotesStore.addNote(this.state);
         // Get the state
         //debugger;
 

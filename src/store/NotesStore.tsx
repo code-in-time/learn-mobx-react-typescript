@@ -1,6 +1,8 @@
 import { observable, computed, action } from 'mobx'
 import { observer} from 'mobx-react'
 import axios from 'axios'
+import { Store } from "../store/Store"
+import { Inotes } from "../store/NotesStore"
 
 export interface Inotes {
     msg: string,
@@ -38,7 +40,7 @@ class NotesClass {
           console.log(response);
           this.saveNotesIsLoading = false
           // Clear all the notes
-          NotesStore.clearAllNotes()
+          Store.NotesStore.clearAllNotes()
         })
         .catch((error) => {
           console.log(error);
@@ -71,7 +73,6 @@ class NotesClass {
             return this.notes.length;
         }
     }
-    
-const NotesStore = new NotesClass();
 
-export default NotesStore
+
+export default NotesClass;

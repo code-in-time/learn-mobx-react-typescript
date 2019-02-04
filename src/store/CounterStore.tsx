@@ -1,7 +1,7 @@
 import { observable, computed, action } from 'mobx'
 import { observer} from 'mobx-react'
 
-class CounterClass {
+class CounterStore {
     @observable counter: number = 0;
     @action.bound
     increment() {
@@ -13,6 +13,4 @@ class CounterClass {
     }
 }
 
-const CounterStore = new CounterClass();
-
-export default CounterStore
+export default CounterStore;
