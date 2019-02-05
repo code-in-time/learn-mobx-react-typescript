@@ -8,8 +8,19 @@ import NotesAdd from './NotesAdd';
 import NotesView from './NotesView';
 import DevTools from 'mobx-react-devtools'
 import Loader from './Loader';
-import { Store } from "../store/Store"
+import { Store, Istore } from "../store/Store"
 import { Inotes } from "../store/NotesStore"
+import makeInspectable from 'mobx-devtools-mst';
+
+
+  makeInspectable(Store)
+
+type Props = {
+
+}
+
+
+
 
 @observer
 class App extends Component {
@@ -23,12 +34,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         <Loader />
         <DevTools />
+
         <div className="row">
           <div className="col">
-            <TodoListView />
+            <TodoListView expiry={5} />
           </div>
         </div>
 

@@ -3,7 +3,7 @@ import { observable, computed } from 'mobx'
 import { observer } from 'mobx-react'
 import { Store } from "../store/Store"
 import { Inotes } from "../store/NotesStore"
-import { trace } from "mobx"
+// import { trace } from "mobx"
 
 
 @observer
@@ -21,7 +21,7 @@ export default class NotesView extends Component {
     render() {
         return (
             <div>
-                {trace(true)}
+                {/* {trace(true)} */}
                 <table className="table">
                     <thead>
                         <tr>
