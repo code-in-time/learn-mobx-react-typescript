@@ -12,7 +12,6 @@ class TodoListView extends Component<ItodoListViewProps> {
     static defaultProps = {expiry: 9}
 
     render() {
-        debugger
         return <div>
             Counter: {Store.CounterStore.counter} | {this.props.expiry}
                 <button onClick={()=> Store.CounterStore.increment()} type="button">add count</button>

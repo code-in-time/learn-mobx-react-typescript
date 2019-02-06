@@ -11,6 +11,7 @@ import Loader from './Loader';
 import { Store, Istore } from "../store/Store"
 import { Inotes } from "../store/NotesStore"
 import makeInspectable from 'mobx-devtools-mst';
+import Box from './Box';
 
 
   makeInspectable(Store)
@@ -36,7 +37,9 @@ class App extends Component {
     return (
       <div className="App" >
         <Loader />
-        <DevTools />
+        {/* <DevTools /> */}
+
+        <Box/>
 
         <div className="row">
           <div className="col">
